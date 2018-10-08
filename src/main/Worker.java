@@ -39,7 +39,7 @@ public class Worker implements Callable<Boolean> {
 	public Boolean call() throws Exception {
 		RDao rDao = new RDao();
 		Connection conn = rDao.getConnection(rdbUrl, rdbUser, rdbPassword);
-		ArrayList<String> hosts = rDao.getHostsMT(conn, thNo-1, thAll, sql);
+		ArrayList<String> hosts = rDao.getHostsMT(conn, thNo - 1, thAll, sql);
 		// ArrayList<String> hosts = rDao.getHostsTest(conn);
 		int i = 0;
 		ADao adao = new ADao();

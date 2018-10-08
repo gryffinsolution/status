@@ -75,7 +75,7 @@ public class ADao {
 				LOG.info(host + ":res=" + sb);
 
 		} catch (SQLException sqle) {
-			return(printSQLException(sqle));
+			return (printSQLException(sqle));
 		} finally {
 			try {
 				if (pst != null) {
@@ -88,7 +88,7 @@ public class ADao {
 					return sb.toString();
 				}
 			} catch (SQLException e) {
-				return(printSQLException(e));
+				return (printSQLException(e));
 			}
 		}
 		return sb.toString();

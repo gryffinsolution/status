@@ -14,6 +14,7 @@ import org.joda.time.DateTime;
 import org.joda.time.Duration;
 
 import util.Conf;
+import util.License;
 
 public class SAAstatus {
 	private static final Logger LOG = LogManager.getLogger(SAAstatus.class);
@@ -37,6 +38,17 @@ public class SAAstatus {
 		} else {
 			LOG.error("there is no config.xml as a args[0]");
 			System.exit(0);
+		}
+		License lic = new License();
+		if (lic.isValid(cf.getSingleString("lic_key_file"))) {
+			LOG.info("license confirmed");
+		} else {
+			if (cf.getSingleString("force_mode").matches("dev")) {
+				LOG.info("develop mode. license check waived");
+			} else {
+				LOG.fatal("license is not valid");
+				System.exit(0);
+			}
 		}
 
 		String rdbUrl = cf.getDbURL();
