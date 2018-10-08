@@ -30,6 +30,7 @@ public class SAAstatus {
 	}
 
 	public static void main(String[] args) {
+		
 		DateTime start = new DateTime();
 		Conf cf = new Conf();
 		if (args.length != 0 && args[0] != null) {
