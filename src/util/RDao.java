@@ -88,7 +88,7 @@ public class RDao {
 			sliceEnd = sliceStart + sliceTerm - 1;
 			LOG.info(seq + 1 + ":" + sliceStart + "~" + sliceEnd);
 			sql = sql + " AND HOST_NO > " + sliceStart + " AND HOST_NO < "
-					+ sliceEnd;
+					+ sliceEnd + " AND ( IS_V3 IS NULL OR IS_V3 = 0) ";
 			LOG.info(sql);
 			stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
